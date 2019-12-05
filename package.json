@@ -142,6 +142,7 @@
     "electron-builder": "22.3.2",
     "electron-debug": "^3.0.1",
     "electron-devtools-installer": "^2.2.4",
+    "electron-notarize": "^0.2.1",
     "eslint": "^6.1.0",
     "eslint-config-standard": "^14.0.0",
     "eslint-friendly-formatter": "^4.0.1",
@@ -193,6 +194,7 @@
     "appId": "io.ark.desktop-wallet",
     "artifactName": "${name}-${os}-${arch}-${version}.${ext}",
     "npmRebuild": false,
+    "afterSign": "scripts/notarize.js",
     "publish": {
       "provider": "github",
       "vPrefixedTagName": false
@@ -216,7 +218,13 @@
     "mac": {
       "category": "public.app-category.finance",
       "icon": "build/icons/icon.icns",
-      "hardenedRuntime": false
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "asarUnpack": [
+        "**/*.node"
+      ],
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist"
     },
     "win": {
       "target": "nsis",

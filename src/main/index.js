@@ -47,7 +47,7 @@ function createWindow () {
     center: true,
     show: false,
     webPreferences: {
-      nodeIntegration: true,
+      // nodeIntegration: true,
       webviewTag: true
     }
   })

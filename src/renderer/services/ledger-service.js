@@ -1,5 +1,5 @@
-import LedgerTransport from '@ledgerhq/hw-transport-node-hid-singleton'
-import ArkLedger from '@arkecosystem/ledger-transport'
+// import LedgerTransport from '@ledgerhq/hw-transport-node-hid-singleton'
+// import ArkLedger from '@arkecosystem/ledger-transport'
 import queue from 'async/queue'
 import logger from 'electron-log'
 
@@ -34,8 +34,8 @@ class LedgerService {
     }
 
     this.listeningForLedger = true
-    this.transport = await LedgerTransport.create()
-    this.ledger = new ArkLedger(this.transport)
+    // this.transport = await LedgerTransport.create()
+    // this.ledger = new ArkLedger(this.transport)
     this.listeningForLedger = false
   }
 

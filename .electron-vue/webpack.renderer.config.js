@@ -2,6 +2,8 @@
 
 process.env.BABEL_ENV = 'renderer'
 
+require("babel-polyfill")
+
 const path = require('path')
 const { dependencies } = require('../package.json')
 const webpack = require('webpack')
@@ -21,11 +23,18 @@ const { VueLoaderPlugin } = require('vue-loader')
  * that provide pure *.vue files that need compiling
  * https://simulatedgreg.gitbooks.io/electron-vue/content/en/webpack-configurations.html#white-listing-externals
  */
-let whiteListedModules = ['vue', 'portal-vue', '@arkecosystem/client', 'got', '@arkecosystem/peers']
+let whiteListedModules = ['vue', 'portal-vue', '@arkecosystem/client', 'got', '@arkecosystem/peers', 'vue-qrcode-reader', 'emittery']
+
+console.log(Object.keys(dependencies || {}).filter(d => !whiteListedModules.includes(d)))
 
 let rendererConfig = {
   devtool: '#cheap-module-eval-source-map',
+  // entry: [
+  //   'babel-polyfill',
+  //   path.join(__dirname, '../src/renderer/main.js')
+  // ],
   entry: {
+    main: 'babel-polyfill',
     renderer: path.join(__dirname, '../src/renderer/main.js')
   },
   externals: [
@@ -133,7 +142,10 @@ let rendererConfig = {
   },
   node: {
     __dirname: process.env.NODE_ENV !== 'production',
-    __filename: process.env.NODE_ENV !== 'production'
+    __filename: process.env.NODE_ENV !== 'production',
+    net: 'empty'
+    // 'fs': false,
+    // 'fs-extra': false
   },
   plugins: [
     new VueLoaderPlugin(),
@@ -156,7 +168,9 @@ let rendererConfig = {
   ],
   output: {
     filename: '[name].js',
-    libraryTarget: 'commonjs2',
+    libraryTarget: 'window',
+    // libraryTarget: 'this',
+    // libraryTarget: 'commonjs2',
     path: path.join(__dirname, '../dist/electron')
   },
   resolve: {
@@ -167,11 +181,13 @@ let rendererConfig = {
       '@config': path.join(__dirname, '../config'),
       '@tests': path.join(__dirname, '../__tests__'),
       'vue$': 'vue/dist/vue.esm.js',
-      'got$': path.join(__dirname, '../src/renderer/plugins/got.js')
+      'got$': path.join(__dirname, '../src/renderer/plugins/got.js'),
+      'fs': 'fs-extra'
     },
     extensions: ['.js', '.vue', '.json', '.css', '.node']
   },
-  target: 'electron-renderer'
+  target: 'web'
+  // target: 'electron-renderer'
 }
 
 /**

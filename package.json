@@ -61,6 +61,7 @@
     "about-window": "^1.13.1",
     "animate.css": "^3.7.0",
     "async": "^3.0.0",
+    "babel-polyfill": "^6.26.0",
     "bignumber.js": "^9.0.0",
     "bip38": "^3.0.0",
     "bip39": "^3.0.0",
@@ -178,9 +179,9 @@
     "vue-loader": "^15.7.1",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.10",
-    "webpack": "^4.38.0",
+    "webpack": "^4.41.3",
     "webpack-cli": "^3.3.6",
-    "webpack-dev-server": "^3.7.2",
+    "webpack-dev-server": "^3.9.0",
     "webpack-hot-middleware": "^2.25.0"
   },
   "build": {

@@ -7,6 +7,7 @@ dist/electron/*
 dist/web/*
 
 build/*
+!build/entitlements.mac.plist
 !build/background.png
 !build/icons
 build/target/*

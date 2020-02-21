@@ -44,7 +44,6 @@ const createLoadingWindow = () => {
   loadingWindow = new BrowserWindow({
     width: 800,
     height: 600,
-    parent: mainWindow,
     skipTaskbar: true,
     frame: false,
     autoHideMenuBar: true,

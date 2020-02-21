@@ -118,6 +118,7 @@ function createWindow () {
 
   windowState.manage(mainWindow)
   mainWindow.loadURL(winURL)
+  mainWindow.hide()
 
   mainWindow.on('close', () => (mainWindow = null))
   mainWindow.on('closed', () => (mainWindow = null))

@@ -13072,9 +13072,9 @@ vuelidate@^0.7.4:
   resolved "https://registry.yarnpkg.com/vuelidate/-/vuelidate-0.7.4.tgz#5a0e54be09ac0192f1aa3387d74b92e0945bf8aa"
   integrity sha512-QHZWYOL325Zo+2K7VBNEJTZ496Kd8Z31p85aQJFldKudUUGBmgw4zu4ghl4CyqPwjRCmqZ9lDdx4FSdMnu4fGg==
 
-"vuex-persist@https://github.com/faustbrian/vuex-persist#d035f5fe719a9b0adb5860375aa24e8f1d303970":
+"vuex-persist@https://github.com/faustbrian/vuex-persist#7b6eec8b44bc00f07060b268e5693c6d44349241":
   version "2.2.0"
-  resolved "https://github.com/faustbrian/vuex-persist#d035f5fe719a9b0adb5860375aa24e8f1d303970"
+  resolved "https://github.com/faustbrian/vuex-persist#7b6eec8b44bc00f07060b268e5693c6d44349241"
   dependencies:
     electron-store "^5.1.1"
     flatted "^2.0.0"

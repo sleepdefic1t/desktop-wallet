@@ -13024,9 +13024,9 @@ vuelidate@^0.7.4:
   resolved "https://registry.yarnpkg.com/vuelidate/-/vuelidate-0.7.4.tgz#5a0e54be09ac0192f1aa3387d74b92e0945bf8aa"
   integrity sha512-QHZWYOL325Zo+2K7VBNEJTZ496Kd8Z31p85aQJFldKudUUGBmgw4zu4ghl4CyqPwjRCmqZ9lDdx4FSdMnu4fGg==
 
-"vuex-persist@https://github.com/faustbrian/vuex-persist#cf0b8a1b2188b056681afc297a50ddbdc49ebf87":
+"vuex-persist@https://github.com/faustbrian/vuex-persist#1d6fe9e6866a3323f3223683e7faa6515a39c0f5":
   version "2.2.0"
-  resolved "https://github.com/faustbrian/vuex-persist#cf0b8a1b2188b056681afc297a50ddbdc49ebf87"
+  resolved "https://github.com/faustbrian/vuex-persist#1d6fe9e6866a3323f3223683e7faa6515a39c0f5"
   dependencies:
     flatted "^2.0.0"
     lodash.merge "^4.6.2"

@@ -115,7 +115,7 @@
     "vue-vuelidate-jsonschema": "^0.13.4",
     "vuelidate": "^0.7.4",
     "vuex": "^3.1.1",
-    "vuex-persist": "https://github.com/faustbrian/vuex-persist#1d6fe9e6866a3323f3223683e7faa6515a39c0f5",
+    "vuex-persist": "https://github.com/faustbrian/vuex-persist#5c863d46e65e147e35393a62b132887c55bd9639",
     "wif": "^2.0.6"
   },
   "devDependencies": {

@@ -42,19 +42,19 @@ const modules = {
 
 // Modules that should not be persisted
 const ignoreModules = [
-  'announcements',
+  // 'announcements',
   // 'app',
-  'delegate',
-  'ledger',
-  'market',
+  // 'delegate',
+  // 'ledger',
+  // 'market',
   // 'network',
-  'peer',
+  // 'peer',
   // 'plugin',
   // 'profile',
   // 'session',
-  'transaction',
-  'updater',
-  'wallet'
+  // 'transaction',
+  'updater'
+  // 'wallet'
 ]
 
 const vuexMigrations = new VuexPersistMigrations({

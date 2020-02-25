@@ -302,6 +302,8 @@ export default {
       await this.$store.dispatch('session/reset')
       await this.$store.dispatch('session/setProfileId', currentProfileId)
       await this.$store.dispatch('ledger/reset')
+
+      ipcRenderer.send('splashscreen:app-ready')
     },
     /**
      * These data are used in different parts, but loading them should not
@@ -338,8 +340,6 @@ export default {
       })
 
       await Promise.all([this.$plugins.fetchPluginsFromAdapter(), this.$plugins.fetchBlacklist(), this.$plugins.fetchWhitelist()])
-
-      ipcRenderer.send('splashscreen:app-ready')
     },
 
     onPortalChange (portal, isActive) {

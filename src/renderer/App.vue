@@ -220,11 +220,6 @@ export default {
   },
 
   watch: {
-    hasScreenshotProtection (value) {
-      if (this.isScreenshotProtectionEnabled) {
-        remote.getCurrentWindow().setContentProtection(value)
-      }
-    },
     routeComponent (value) {
       if (this.aliveRouteComponents.includes(value)) {
         pull(this.aliveRouteComponents, value)
@@ -272,11 +267,14 @@ export default {
    * retrieving the essential data (session and network) from the database
    */
   async created () {
-    this.$store._vm.$on('vuex-persist:ready', async () => {
-      // Environments variables are strings
-      this.isScreenshotProtectionEnabled = process.env.ENABLE_SCREENSHOT_PROTECTION !== 'false'
+    // Environments variables are strings
+    this.isScreenshotProtectionEnabled = true // process.env.ENABLE_SCREENSHOT_PROTECTION !== 'false'
 
+    this.setContentProtection()
+
+    this.$store._vm.$on('vuex-persist:ready', async () => {
       await this.loadEssential()
+
       this.isReady = true
 
       this.$synchronizer.defineAll()
@@ -338,6 +336,8 @@ export default {
       })
 
       await Promise.all([this.$plugins.fetchPluginsFromAdapter(), this.$plugins.fetchBlacklist(), this.$plugins.fetchWhitelist()])
+
+      this.setContentProtection()
 
       ipcRenderer.send('splashscreen:app-ready')
     },
@@ -422,6 +422,10 @@ export default {
           $style.innerHTML = output.styles
         }
       }
+    },
+
+    setContentProtection () {
+      remote.getCurrentWindow().setContentProtection(this.isScreenshotProtectionEnabled)
     }
   }
 }

@@ -1,87 +1,101 @@
 <template>
-  <Component
-    :is="activeComponent"
-    v-bind="$attrs"
-    @cancel="emitCancel"
-    @next="emitBuilt"
-  />
+  <div>
+    <h1>Hello World</h1>
+    <GenericForm
+      v-model="model"
+      :validation-schema="validationSchema"
+      :interface-schema="interfaceSchema"
+    />
+  </div>
 </template>
 
 <script>
-/* eslint-disable vue/no-unused-components */
-import { TRANSACTION_GROUPS } from '@config'
-import TransactionFormDelegateRegistration from './TransactionFormDelegateRegistration'
-import TransactionFormDelegateResignation from './TransactionFormDelegateResignation'
-import TransactionFormIpfs from './TransactionFormIpfs'
-import TransactionFormMultiPayment from './TransactionFormMultiPayment'
-import TransactionFormMultiSign from './TransactionFormMultiSign'
-import TransactionFormMultiSignature from './TransactionFormMultiSignature'
-import TransactionFormTransfer from './TransactionFormTransfer'
-import TransactionFormVote from './TransactionFormVote'
-import TransactionFormSecondSignature from './TransactionFormSecondSignature'
-import TransactionFormBusiness from './TransactionFormBusiness'
-import TransactionFormBridgechain from './TransactionFormBridgechain'
+import GenericForm from './GenericForm'
 
 export default {
   name: 'TransactionForm',
 
   components: {
-    TransactionFormDelegateRegistration,
-    TransactionFormDelegateResignation,
-    TransactionFormIpfs,
-    TransactionFormMultiPayment,
-    TransactionFormMultiSign,
-    TransactionFormMultiSignature,
-    TransactionFormTransfer,
-    TransactionFormVote,
-    TransactionFormSecondSignature,
-    ...TransactionFormBusiness,
-    ...TransactionFormBridgechain
+    GenericForm
   },
 
-  props: {
-    group: {
-      type: Number,
-      required: false,
-      default: TRANSACTION_GROUPS.STANDARD
-    },
-
-    type: {
-      type: Number,
-      required: true
+  data () {
+    return {
+      model: {
+        address: null,
+        currency: null,
+        password: null,
+        switch: null,
+        text: null,
+        fee: null
+      },
+      validationSchema: {
+        type: 'object',
+        properties: {
+          address: {
+            type: 'string'
+          },
+          currency: {
+            type: 'string'
+          },
+          password: {
+            type: 'string'
+          },
+          switch: {
+            type: 'string'
+          },
+          text: {
+            type: 'string'
+          },
+          fee: {
+            type: 'string'
+          }
+        }
+      },
+      interfaceSchema: [
+        // {
+        //   component: 'InputAddress',
+        //   model: 'address'
+        // },
+        // {
+        //   component: 'InputCurrency',
+        //   model: 'currency'
+        // },
+        // {
+        //   component: 'InputPassword',
+        //   model: 'password'
+        // },
+        // {
+        //   component: 'InputSwitch',
+        //   model: 'switch'
+        // },
+        {
+          component: 'InputText',
+          model: 'text',
+          options: {
+            class: ['form-control'],
+            on: {
+              input (value) { console.log(value) }
+            },
+            attrs: {
+              placeholder: 'Please enter your first name'
+            },
+            props: {
+              label: 'First Name',
+              name: 'first_name'
+            }
+          }
+        }
+        // {
+        //   component: 'InputFee',
+        //   model: 'fee'
+        // }
+      ]
     }
   },
 
-  data: () => ({
-    activeComponent: null
-  }),
-
-  // TODO: Fetch fees remotely
-  mounted () {
-    const component = Object.values(this.$options.components).find(component => {
-      const group = component.transactionGroup || TRANSACTION_GROUPS.STANDARD
-      if (group !== this.group) {
-        return false
-      }
-
-      return component.transactionType === this.type
-    })
-
-    if (!component) {
-      throw new Error(`[TransactionForm] - Form for type ${this.type} (group ${this.group}) not found.`)
-    }
-
-    this.activeComponent = component.name
-  },
-
-  methods: {
-    emitBuilt (transaction) {
-      this.$emit('built', transaction)
-    },
-
-    emitCancel (reason) {
-      this.$emit('cancel', reason)
-    }
+  watch: {
+    model (value) { console.log(value) }
   }
 }
 </script>

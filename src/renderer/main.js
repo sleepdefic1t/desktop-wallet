@@ -21,6 +21,15 @@ import synchronizer from '@/plugins/synchronizer'
 import eventBus from '@/plugins/event-bus'
 import pluginManager from '@/plugins/plugin-manager'
 
+import { InputAddress, InputCurrency, InputPassword, InputSwitch, InputText, InputFee } from '@/components/Input'
+
+Vue.component('InputAddress', InputAddress)
+Vue.component('InputCurrency', InputCurrency)
+Vue.component('InputPassword', InputPassword)
+Vue.component('InputSwitch', InputSwitch)
+Vue.component('InputText', InputText)
+Vue.component('InputFee', InputFee)
+
 // Must be first to contain an empty Vue instance
 Vue.use(pluginManager)
 

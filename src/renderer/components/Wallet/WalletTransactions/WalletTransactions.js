@@ -13,6 +13,10 @@ export default {
   mixins: [mixin],
 
   created () {
+    this.queryParams.limit = this.$store.getters[
+      'session/transactionTableRowCount'
+    ]
+
     this.loadTransactions()
     this.$eventBus.on('wallet:reload', this.loadTransactions)
     this.enableNewTransactionEvent(this.wallet_fromRoute.address)

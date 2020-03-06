@@ -168,7 +168,6 @@
     "jest-extended": "^0.11.1",
     "jest-serializer-vue": "^2.0.2",
     "jest-transform-stub": "^2.0.0",
-    "lint-staged": "^10.0.0",
     "mini-css-extract-plugin": "^0.9.0",
     "mock-socket": "^9.0.0",
     "multispinner": "^0.2.1",
@@ -272,11 +271,6 @@
       "perMachine": true,
       "oneClick": false,
       "allowToChangeInstallationDirectory": true
-    }
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
     }
   }
 }

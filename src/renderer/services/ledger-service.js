@@ -107,7 +107,7 @@ class LedgerService {
   }
 
   /**
-   * Sign transaction for ledger wallet.
+   * Sign transaction for ledger wallet using ecdsa signatures.
    * @param  {Number} path Path for wallet location.
    * @param  {String} transactionHex Hex of transaction.
    * @return {(String|Boolean)}
@@ -119,7 +119,19 @@ class LedgerService {
   }
 
   /**
-   * Sign message for ledger wallet.
+   * Sign transaction for ledger wallet using schnorr signatures.
+   * @param  {Number} path Path for wallet location.
+   * @param  {String} transactionHex Hex of transaction.
+   * @return {(String|Boolean)}
+   */
+  async signTransactionWithSchnorr (path, transactionHex) {
+    return this.__performAction(async () => {
+      return this.ledger.signTransactionWithSchnorr(path, transactionHex)
+    })
+  }
+
+  /**
+   * Sign message for ledger wallet using ecdsa signatures.
    * @param  {Number} path Path for wallet location.
    * @param  {String} messageHex Hex to sign.
    * @return {(String|Boolean)}
@@ -127,6 +139,20 @@ class LedgerService {
   async signMessage (path, messageHex) {
     return this.__performAction(async () => {
       return this.ledger.signMessage(path, Buffer.from(messageHex, 'hex'))
+    })
+  }
+
+  /**
+   * Sign message for ledger wallet using schnorr signatures.
+   * @param  {Number} path Path for wallet location.
+   * @param  {String} messageHex Hex to sign.
+   * @return {(String|Boolean)}
+   */
+  async signMessageWithSchnorr (path, messageHex) {
+    return this.__performAction(async () => {
+      return this.ledger.signMessageWithSchnorr(
+        path,
+        Buffer.from(messageHex, 'hex'))
     })
   }
 

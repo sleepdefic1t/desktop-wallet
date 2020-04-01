@@ -875,7 +875,7 @@ describe('Services > Transaction', () => {
       spyTranslate.mockRestore()
     })
 
-    it('should sign the transaction', async () => {
+    it('should ecdsa sign the transaction', async () => {
       transactionObject.sign(senderPassphrase)
       const transactionJson = transactionObject.getStruct()
 
@@ -885,6 +885,31 @@ describe('Services > Transaction', () => {
 
       spyDispatch.mockImplementation((key) => {
         if (key === 'ledger/signTransaction') {
+          return signature
+        }
+      })
+
+      const spyGetBytes = jest.spyOn(TransactionService, 'getBytes')
+
+      const transaction = await TransactionService.ledgerSign(wallet, transactionObject, vmMock)
+
+      expect(transaction.id).toEqual(id)
+      expect(spyGetBytes).toHaveBeenCalledWith(transactionJson)
+      expect(spyGetBytes).toHaveReturnedWith(bytes)
+
+      spyGetBytes.mockRestore()
+    })
+
+    it('should schnorr sign the transaction', async () => {
+      transactionObject.sign(senderPassphrase)
+      const transactionJson = transactionObject.getStruct()
+
+      const bytes = TransactionService.getBytes(transactionJson)
+      const id = TransactionService.getId(transactionJson)
+      const signature = transactionObject.data.signature
+
+      spyDispatch.mockImplementation((key) => {
+        if (key === 'ledger/signTransactionWithSchnorr') {
           return signature
         }
       })

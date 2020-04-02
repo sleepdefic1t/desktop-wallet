@@ -96,8 +96,12 @@ export default class TransactionService {
       transaction.recipientId = wallet.address
     }
 
+    const sign = transaction.version === 2
+      ? 'ledger/signTransactionWithSchnorr'
+      : 'ledger/signTransaction'
+
     const transactionBytes = this.getBytes(transaction)
-    transaction.signature = await vm.$store.dispatch('ledger/signTransactionWithSchnorr', {
+    transaction.signature = await vm.$store.dispatch(sign, {
       transactionHex: transactionBytes.toString('hex'),
       accountIndex: wallet.ledgerIndex
     })

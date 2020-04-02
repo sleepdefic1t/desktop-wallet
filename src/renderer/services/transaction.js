@@ -153,7 +153,7 @@ export default class TransactionService {
    * @return {Object}
    */
   static async ledgerSignMessage (wallet, message, vm) {
-    const signature = await vm.$store.dispatch('ledger/signMessageWithSchnorr', {
+    const signature = await vm.$store.dispatch('ledger/signMessage', {
       messageHex: Buffer.from(message).toString('hex'),
       accountIndex: wallet.ledgerIndex
     })

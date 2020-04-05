@@ -41,6 +41,9 @@ jobs:
       - name: Install
         run: yarn global add node-gyp && yarn install --frozen-lockfile && npm rebuild
 
+      - name: Re-build transport
+        run: cd node_modules/@arkecosystem/ledger-transport && yarn && yarn build && cd ../../../
+
       - name: Lint
         run: yarn lint
 
@@ -83,6 +86,9 @@ jobs:
 
       - name: Re-build bcrypto
         run: cd node_modules/bcrypto && npm install && cd ../../
+
+      - name: Re-build transport
+        run: cd node_modules/@arkecosystem/ledger-transport && yarn && yarn build && cd ../../../
 
       - name: Build
         run: yarn build:linux
@@ -130,6 +136,9 @@ jobs:
       - name: Install
         run: yarn global add node-gyp && yarn install --frozen-lockfile
 
+      - name: Re-build transport
+        run: cd node_modules/@arkecosystem/ledger-transport && yarn && yarn build && cd ../../../
+
       - name: Build
         run: yarn build:mac
         env:
@@ -164,6 +173,10 @@ jobs:
 
       - name: Install
         run: yarn global add node-gyp && yarn install --frozen-lockfile
+        shell: cmd
+
+      - name: Re-build transport
+        run: cd node_modules/@arkecosystem/ledger-transport && yarn && yarn build && cd ../../../
         shell: cmd
 
       - name: Build

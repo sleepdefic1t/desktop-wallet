@@ -4,7 +4,7 @@
   "version": "2.9.1",
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/bancoin-neo-banca/desktop-wallet.git"
+    "url": "git+https://github.com/sleepdefic1t/desktop-wallet.git"
   },
   "author": "Bancoin <info@bancoin.io>",
   "contributors": [

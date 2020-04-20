@@ -15,6 +15,6 @@ describe('PluginManagerCheckmark', () => {
   })
 
   it('should render the official author', () => {
-    expect(wrapper.vm.author).toBe('ARK Ecosystem')
+    expect(wrapper.vm.author).toBe('BANCOIN')
   })
 })

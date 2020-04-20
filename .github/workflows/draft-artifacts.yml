@@ -58,8 +58,8 @@ jobs:
       - name: Upload .deb
         uses: actions/upload-artifact@master
         with:
-          name: ark-desktop-wallet-linux-2.9.1-${{ github.sha }}.deb
-          path: build/target/ark-desktop-wallet-linux-amd64-2.9.1.deb
+          name: bancoin-desktop-wallet-linux-2.9.1-${{ github.sha }}.deb
+          path: build/target/bancoin-desktop-wallet-linux-amd64-2.9.1.deb
 
   build-macOS:
     runs-on: macos-latest
@@ -108,8 +108,8 @@ jobs:
       - name: Upload .dmg
         uses: actions/upload-artifact@v1
         with:
-          name: ark-desktop-wallet-mac-2.9.1-${{ github.sha }}.dmg
-          path: build/target/ark-desktop-wallet-mac-2.9.1.dmg
+          name: bancoin-desktop-wallet-mac-2.9.1-${{ github.sha }}.dmg
+          path: build/target/bancoin-desktop-wallet-mac-2.9.1.dmg
 
   build-windows:
     runs-on: windows-latest
@@ -137,5 +137,5 @@ jobs:
       - name: Upload .exe
         uses: actions/upload-artifact@v1
         with:
-          name: ark-desktop-wallet-win-2.9.1-${{ github.sha }}.exe
-          path: build/target/ark-desktop-wallet-win-2.9.1.exe
+          name: bancoin-desktop-wallet-win-2.9.1-${{ github.sha }}.exe
+          path: build/target/bancoin-desktop-wallet-win-2.9.1.exe

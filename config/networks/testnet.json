@@ -1,0 +1,66 @@
+{
+  "id": "bancoin.testnet",
+  "name": "Bancoin Mainnet",
+  "title": "Bancoin Mainnet",
+  "server": "http://199.192.30.215:4003/",
+  "description": "The Bancoin Mainnet should be chosen in most cases.",
+  "imagePath": "networks/ark.png",
+  "apiVersion": 2,
+  "slip44": "111",
+  "market": {
+    "enabled": true,
+    "ticker": "BIN"
+  },
+  "feeStatistics": [
+    {
+      "type": 0,
+      "fees": {
+        "avgFee": 10000000,
+        "maxFee": 10000000,
+        "minFee": 10000000
+      }
+    },
+    {
+      "type": 1,
+      "fees": {
+        "avgFee": 500000000,
+        "maxFee": 500000000,
+        "minFee": 500000000
+      }
+    },
+    {
+      "type": 2,
+      "fees": {
+        "avgFee": 2500000000,
+        "maxFee": 2500000000,
+        "minFee": 2500000000
+      }
+    },
+    {
+      "type": 3,
+      "fees": {
+        "avgFee": 100000000,
+        "maxFee": 100000000,
+        "minFee": 100000000
+      }
+    }
+  ],
+  "constants": {
+    "activeDelegates": 51,
+    "epoch": "2020-04-16T21:36:28.153Z"
+  },
+  "vendorField": {
+    "maxLength": 255
+  },
+  "nethash": "4a8f3db2ed6f0407d5d4460c16d1c1c26cfd0b328664b0b50e0d59f264d79d69",
+  "explorer": "http://199.192.30.215:4200/",
+  "token": "BIN",
+  "subunit": "bintoshi",
+  "symbol": "ᖚ",
+  "fractionDigits": 8,
+  "version": 23,
+  "wif": 6,
+  "knownWallets": {
+    "TXS4gWUmGNaAgNEeTdBX9WVHkLMtCd9S66": "Testnet Genesis Wallet"
+  }
+}

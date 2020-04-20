@@ -175,10 +175,10 @@ let colors = {
   'red-darkest': '#3b0d0c',
   'red-darker': '#621b18',
   'red-dark': '#cc1f1a',
-  'red': '#e51317', // ARK logo
-  'red-light': '#F03643', // Sidemenu hover and selected border
+  'red': '#8800ff', // ARK logo
+  'red-light': '#8800ff', // Sidemenu hover and selected border
   'red-lighter': '#f9acaa',
-  'red-lightest': '#fef4f5', // Sidemenu hover background
+  'red-lightest': '#8800ff', // Sidemenu hover background
 
   'orange-darkest': '#462a16',
   'orange-darker': '#613b1f',

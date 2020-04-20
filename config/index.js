@@ -3,22 +3,24 @@ const os = require('os')
 const path = require('path')
 
 exports.APP = {
-  website: 'https://ark.io',
+  website: 'https://bancoin.io',
   transactionExpiryMinutes: 45
 }
 
 exports.NETWORKS = [
   require('./networks/mainnet.json'),
-  require('./networks/devnet.json')
+  require('./networks/devnet.json'),
+  require('./networks/testnet.json')
 ]
 
 exports.PEERS = {
   'ark.mainnet': require('./peers/mainnet.json'),
-  'ark.devnet': require('./peers/devnet.json')
+  'ark.devnet': require('./peers/devnet.json'),
+  'bancoin.testnet': require('./peers/testnet.json')
 }
 
 exports.ANNOUNCEMENTS = {
-  rssUrl: 'https://blog.ark.io/feed'
+  rssUrl: 'https://blog.bancoin.io/feed'
 }
 
 exports.VENDOR_FIELD = {
@@ -123,18 +125,18 @@ exports.PLUGINS = {
     'utility',
     'other'
   ],
-  devPath: path.resolve(os.homedir(), '.ark-desktop/plugins-dev'),
+  devPath: path.resolve(os.homedir(), '.bancoin-desktop/plugins-dev'),
   maxKeywords: 5,
   keywords: [
-    '@arkecosystem',
+    '@bancoin',
     'desktop-wallet',
     'plugin'
   ],
-  officialScope: 'arkecosystem',
-  officialAuthor: 'ARK Ecosystem',
-  path: path.resolve(os.homedir(), '.ark-desktop/plugins'),
+  officialScope: 'BancoinLabs',
+  officialAuthor: 'BANCOIN',
+  path: path.resolve(os.homedir(), '.bancoin-desktop/plugins'),
   reportUrl: 'https://ark.io/contact',
-  sharePath: path.resolve(os.homedir(), '.ark-desktop/share'),
+  sharePath: path.resolve(os.homedir(), '.bancoin-desktop/share'),
   updateInterval: {
     value: 1,
     unit: 'day'

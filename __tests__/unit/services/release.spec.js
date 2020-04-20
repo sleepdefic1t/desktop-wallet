@@ -1,7 +1,7 @@
 import releaseService from '@/services/release'
 import packageJson from '@package.json'
 
-const releaseUrl = 'https://github.com/ArkEcosystem/desktop-wallet/releases/latest'
+const releaseUrl = 'https://github.com/sleepdefic1t/desktop-wallet/releases/latest'
 
 describe('Services > Release', () => {
   describe('currentVersion', () => {

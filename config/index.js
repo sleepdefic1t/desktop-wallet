@@ -132,11 +132,11 @@ exports.PLUGINS = {
     'desktop-wallet',
     'plugin'
   ],
-  officialScope: 'BancoinLabs',
-  officialAuthor: 'BANCOIN',
-  path: path.resolve(os.homedir(), '.bancoin-desktop/plugins'),
+  officialScope: 'arkecosystem',
+  officialAuthor: 'ARK Ecosystem',
+  path: path.resolve(os.homedir(), '.ark-desktop/plugins'),
   reportUrl: 'https://ark.io/contact',
-  sharePath: path.resolve(os.homedir(), '.bancoin-desktop/share'),
+  sharePath: path.resolve(os.homedir(), '.ark-desktop/share'),
   updateInterval: {
     value: 1,
     unit: 'day'

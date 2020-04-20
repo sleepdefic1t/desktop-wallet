@@ -125,10 +125,10 @@ exports.PLUGINS = {
     'utility',
     'other'
   ],
-  devPath: path.resolve(os.homedir(), '.bancoin-desktop/plugins-dev'),
+  devPath: path.resolve(os.homedir(), '.ark-desktop/plugins-dev'),
   maxKeywords: 5,
   keywords: [
-    '@bancoin',
+    '@arkecosystem',
     'desktop-wallet',
     'plugin'
   ],

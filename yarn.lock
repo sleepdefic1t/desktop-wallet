@@ -75,9 +75,11 @@
     tiny-glob "^0.2.6"
     wif "^2.0.6"
 
-"@arkecosystem/ledger-transport@ArkEcosystem/ledger-transport#feat/schnorr":
+"@arkecosystem/ledger-transport@https://github.com/ArkEcosystem/ledger-transport#094fbdbd5ef7d04ec6cd182a2cfc95a96750c7fd":
   version "1.0.5"
-  resolved "https://codeload.github.com/ArkEcosystem/ledger-transport/tar.gz/73e6ddc09f9cf822866069559e4c5b537badf561"
+  resolved "https://github.com/ArkEcosystem/ledger-transport#094fbdbd5ef7d04ec6cd182a2cfc95a96750c7fd"
+  dependencies:
+    "@ledgerhq/errors" "^5.13.1"
 
 "@arkecosystem/peers@^0.3.0":
   version "0.3.0"
@@ -1205,6 +1207,11 @@
     "@ledgerhq/errors" "^5.7.0"
     "@ledgerhq/logs" "^5.6.0"
     rxjs "^6.5.4"
+
+"@ledgerhq/errors@^5.13.1":
+  version "5.15.0"
+  resolved "https://registry.yarnpkg.com/@ledgerhq/errors/-/errors-5.15.0.tgz#e5d5b5ad48fc07f6308b78b065242e158bc044a2"
+  integrity sha512-ZlLhR7qaChPgEbvcqOptRepWGm8VhhwOM6kC1gx3WErutbtaOjUX8lLA4ButWFU2f+xTl2rS/5c86wC7qGqGXQ==
 
 "@ledgerhq/errors@^5.7.0":
   version "5.7.0"
